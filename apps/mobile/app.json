@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "K-Assist Example",
+    "slug": "k-assist-example",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "ios": {
+      "bundleIdentifier": "dev.kassist.example",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "dev.kassist.example",
+      "edgeToEdgeEnabled": true
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "k-assist",
+  "private": true,
+  "packageManager": "pnpm@11.22.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev:marketing": "pnpm --filter @k-assist/marketing dev",
+    "build:marketing": "pnpm --filter @k-assist/marketing build",
+    "deploy:marketing": "pnpm --filter @k-assist/marketing deploy",
+    "dev:api": "LISTEN_ADDR=\"${LISTEN_ADDR:-127.0.0.1:8091}\" go -C services/api run ./cmd/server",
+    "build:api": "mkdir -p bin && go -C services/api build -o ../../bin/k-assist-api ./cmd/server",
+    "check": "go -C services/api vet ./... && pnpm --filter @k-assist/mobile typecheck && pnpm build:marketing",
+    "sync:mobile": "node scripts/sync-mobile.mjs",
+    "check:supabase": "node scripts/check-supabase.mjs",
+    "supabase": "node scripts/supabase.mjs",
+    "wrangler": "wrangler"
+  },
+  "devDependencies": {
+    "supabase": "3.2.0",
+    "wrangler": "4.163.0"
+  }
+}
